@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+   <style>
+       .row {
+        display: flex;
+		flex-basis: 200px;
+       }
+
+       .column {
+           display: flex;
+           flex-direction: column;
+       }
+
+       .block {
+           border: 1px solid black;
+           margin: 0.25em;
+           padding: 0.5em;
+		   flex-basis: 200px;
+		   background-color: rgb(248, 243, 43);
+       }
+	   .block1 {
+           border: 1px solid black;
+           margin: 0.25em;
+           padding: 0.5em;
+		   flex-basis: 426px; 
+		   background-color: rgb(248, 243, 43);
+       }		   
+	   
+	   .block i {
+			border: 1px solid black; 
+			margin: 0em;
+			padding: 0.2em;
+		}
+		
+			   .block1 i {
+			border: 1px solid black; 
+			margin: 0em;
+			padding: 0.2em;
+		}
+
+	
+		
+		       .row2 {
+           display: flex;
+            justify-content: flex-end;
+           align-items: flex-end;
+		   height:170px;
+       }
+		       .row3 {
+			    height:74px;
+           display: flex;
+           justify-content: flex-end;
+           align-items: center;
+       }
+
+		       .row4 {
+			    height:65px;
+           display: flex;
+           justify-content: flex-start;
+           align-items: center;
+       }		
+		       .row5 {
+			    height:94px;
+           display: flex;
+           justify-content: flex-start;
+           align-items: center;
+       }
+		       .row6 {
+			    height:120px;
+           display: flex;
+           justify-content: flex-start;
+           align-items: flex-end;
+       }		
+		       .row7 {
+			    height:40px;
+           display: flex;
+           justify-content: flex-start;
+           align-items: flex-end;
+       }
+		       .row8 {
+			    height:63px;
+           display: flex;
+           justify-content: flex-end;
+           align-items: center;
+       }
+		       .row9 {
+			    height:29px;
+           display: flex;
+           justify-content: flex-end;
+           align-items: flex-end;
+       }		
+		       .row10 {
+			    height:35px;
+           display: flex;
+           justify-content: flex-end;
+           align-items: flex-end;
+       }
+		       .row11 {
+			    height:120px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }	
+		       .row12 {
+			    height:0px;
+           display: flex;
+           justify-content: center;
+           align-items: flex-end;
+       }
+		       .row13 {
+			    height:0px;
+           display: flex;
+           justify-content:  flex-end;
+           align-items: flex-start;
+       }
+	   
+	   .block2 {
+        border: 1px solid black;
+        margin: 0.25em;
+        padding: 0.5em;
+		flex-basis: 200px;
+		   background-color: rgb(248, 243, 43);
+       }
+
+			   .block2 i {
+
+		}		   
+		       .row14 {
+           display: flex;
+       justify-content: flex-start;   
+align-items:  flex-start;
+
+			border: 1px solid black; 
+			padding: 0.2em 65% 0.2em 0.2em ;
+       }		   
+	   
+	   		       .row15 {
+				   margin: 30px 0em 20px 0em;
+       display: flex;
+       justify-content: flex-start;   
+align-items:  flex-start;
+			border: 1px solid black; 
+			padding: 0.2em 65% 0.2em 0.2em ;
+}
+   </style>
+</head>
+<body>
+<div class="column">
+   <!-- строка 1 -->
+   <div class="row">
+    <!-- 1 столббец -->
+       <div class="block">
+           <div class="row2">
+               <i class="fas fa-2x fa-dog"></i>
+           </div>
+       </div>
+<!-- стр 1, 2 столбец -->
+       <div class="block">
+			<div class="row3">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+		   <p></p>
+		   <p></p>
+		   <div class="row3">
+		   <i class="fas fa-2x fa-kiwi-bird"></i>
+		   </div>
+       </div>
+<!-- стр 1, 3 столбец -->
+       <div class="block">
+			<div class="row4">
+           <i class="fas fa-2x fa-cat"></i>
+		   </div>
+		   <p>
+		   <div class="row5">
+		   <i class="fas fa-2x fa-kiwi-bird"></i>
+		   </div>
+       </div>	   
+<!-- стр 1, 4 столбец -->
+       <div class="block">
+			<div class="row6">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+		   <p>
+		   <div class="row7">
+		   <i class="fas fa-2x fa-cat"></i>
+		   </div>
+       </div>		   
+	   <!-- конец стр 1 -->
+	   
+   </div>
+   <!-- строка 2 -->
+      <div class="row">
+<!-- стр 2, 1 столбец -->
+       <div class="block">
+			<div class="row8">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+		   <p></p>
+		   <div class="row9">
+		   <i class="fas fa-2x fa-kiwi-bird"></i>
+		   </div>
+		   <p></p>
+		   	<div class="row10">
+           <i class="fas fa-2x fa-cat"></i>
+		   </div>
+       </div>
+<!-- стр 2, 2 столбец -->
+       <div class="block1">
+			<div class="row11">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+		   <p></p>
+		   	<div class="row12">
+           <i class="fas fa-2x fa-cat"></i>
+		   </div>
+       </div>	   
+	   
+<!-- стр 2, 3 столбец -->	 
+       <div class="block">
+			<div class="">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+       </div>  
+	   <!-- конец 2 строки -->
+	  </div> 
+   <!-- строка 3 -->
+   <div class="row">
+    <!-- стр 3 cт 1 -->
+       <div class="block">
+			<div class="row13">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+       </div> 
+    <!-- стр 3 cт 2 -->
+       <div class="block2">
+			<div class="row14">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+		   <p></p>
+		   	<div class="row14">
+           <i class="fas fa-2x fa-cat"></i>
+		   </div>
+       </div>  
+    <!-- стр 3 cт 3 -->
+       <div class="block2">
+			<div class="row14">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+		   <p></p>
+		   <div class="row14">
+		   <i class="fas fa-2x fa-kiwi-bird"></i>
+		   </div>
+		   <p></p>
+		   	<div class="row14">
+           <i class="fas fa-2x fa-cat"></i>
+		   </div>
+       </div> 
+    <!-- стр 3 cт 4 -->
+       <div class="block2">
+	   		   	<div class="row15">
+           <i class="fas fa-2x fa-cat"></i>
+		   </div>
+
+	   <p></p>
+			<div class="row15">
+           <i class="fas fa-2x fa-dog"></i>
+		   </div>
+       </div>  	   
+	   <!-- конец строки 3 -->
+   </div>
+</div>
+</body>
+</html>
