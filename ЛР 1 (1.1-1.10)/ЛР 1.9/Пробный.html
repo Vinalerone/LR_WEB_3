@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center;">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <div class="main-image-wrapper">
+
+    <div class="main-image-wrapper"> <!-- обернули в блок -->
+        <img class="main-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Haanja_2010_01_1.jpg/1200px-Haanja_2010_01_1.jpg" alt="">
+    </div>
+            </div>
+            <div style="font-size: 2em;">Зима <i class="fas fa-cog fa-spin"></i></div>
+            <div >близко </div>
+    </div>
+</div>
+    <style>
+        /* в блок перенесли все свойства из main-image */
+        .main-image-wrapper {
+            width: 250px; 
+            height: 250px; 
+            border: 1px solid silver;
+            margin: 8px;
+            box-shadow: 0 0 16px silver;
+            border-radius: 50%;  /* поставил 50% */
+            overflow: hidden; /* добавил */
+        }
+    
+        .main-image {
+            height: 100%; /* тут поставили такое свойство, чтобы картинка по высоте равнялась высоте обертки */
+        }
+    </style>
+</body>
+</html>
