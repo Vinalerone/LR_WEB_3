@@ -1,0 +1,255 @@
+body {
+    font-family: 'Poppins';
+}
+
+/* TOP SECTION  */
+
+.navbar {
+    height: 116px;
+    background: rgba(196, 196, 196, 0.1);
+}
+
+.section-top {
+    background-image: url("images/bg01.jpg");
+    height: 737px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.navbar-brand {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.navbar-brand .logo-text {
+    margin-left: 21px;
+}
+
+.nav-item {
+    margin-left: 58px;
+    padding: 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #717784;
+}
+
+.btn-lilac {
+    width: 234px;
+    height: 60px;
+
+    background: #9B9BCA;
+    border-radius: 10px;
+    border: 0;
+
+    font-style: normal;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+    transition: all .3s;
+}
+
+.btn-lilac:hover {
+    background: #9e75cc;
+}
+
+.header-top-info-container {
+    margin-top: 196px;
+}
+
+.header-top-info-container > h1 {
+    font-family: DM Serif Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 56px;
+    line-height: 100%;
+    /* or 56px */
+    
+    
+    color: #696A86;
+}
+
+.header-top-info-container > .text {
+    
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #696A86;
+}
+
+.header-top-info-container > * {
+    margin-top: 30px;
+}
+
+
+/* SECTION 2  */
+
+.section-2 .info-container {
+    margin-top: 95px;
+    text-align: center;
+    width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-2 .info-container > h2 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 39px;
+    color: #626780;
+}
+
+.section-2 .info-container > .text {
+    margin-top: 23px;
+    font-size: 18px;
+    line-height: 26px;
+
+    color: #626780;
+}
+
+.section-2 .service-items {
+    margin-top: 139px;
+}
+
+.section-2 .service-items .service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+
+    border: 1px solid #9d9d9d00;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    transition: all .3s;
+
+    cursor: pointer;
+    position: relative;
+
+    overflow: hidden;
+}
+
+.section-2 .service-items .service-item::after {
+    position: absolute;
+    height: 7px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #c4c4c400;
+    transition: all .3s;
+    content: "";
+}
+
+.section-2 .service-items .service-item:hover {
+    border: 1px solid #9D9D9D;
+}
+
+.section-2 .service-items .service-item:hover::after {
+    background: #C4C4C4;
+}
+
+
+.section-2 .service-items .service-item h3 {
+    margin-top: 21px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 40px;
+    color: #626780;
+}
+
+.section-2 .service-items .service-item .text {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #626780;
+}
+
+.section-3 {
+    margin-top: 192px;
+}
+
+.section-3 .row {
+   align-items: center;
+}
+
+.section-3 .info-container h2 {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 39px;
+    color: #626780;
+}
+
+.section-3 .info-container .text {
+    font-size: 18px;
+    line-height: 30px;
+    color: #626780;
+}
+
+.section-4 {
+    margin-top: 150px;
+    background: url("images/big-circle.svg");
+    background-repeat: no-repeat;
+    background-position-x: 877px;
+    
+}
+
+.section-4 .container {
+    background: url("images/man.png");
+    background-position-x: 577px;
+    background-repeat: no-repeat;
+    
+    overflow: visible;
+    height: 1030px;
+}
+
+.section-4 .container .under-the-man {
+    margin-top: 730px;
+}
+
+.section-4 .question-item {
+    padding: 25px 34px 25px 34px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px #F5F5FF;
+    border-radius: 23px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.r-111 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 550px;
+    height: 275px;
+    left: 250px;
+    
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 140%;
+
+    
+    color: #402B2B;
+}
