@@ -45,7 +45,27 @@
 	  <div class="col-md-4">
             <div class="shadow p-2 text-center">
            <span id="title">Название</span>
-		   <span id="image">Картинка</span>
+           <p>
+		   <img id="image" src="https://invent-prom.ru/wp-content/uploads/2020/01/94436_1.jpg" style="width: 300px;"></span>
+      </p>
+        </div>
+        <div>
+          <table class="table  table-hover">
+            <thead class="table-striped">
+              <tr>
+                <th>Режиссёр</th>
+                <td><span id="director">Имя режиссёра</span></td>
+              </tr>
+              <tr>
+                <th>Год выпуска</th>
+                <td><span id="year"> Год выпуска </span></td>
+              </tr>
+              <tr>
+                <th>Рейтинг</th>
+                <td><span id="rating">Рейтинг </span></td>
+              </tr>
+            </thead>
+          </table>
         </div>
   </div>
 	
@@ -66,7 +86,19 @@
 function onRowClick(row) {
   let title = document.getElementById("title")
   title.innerText = row.dataset.title;
-    
+
+  let director = document.getElementById("director")
+  director.innerText = row.dataset.director;
+
+  let year = document.getElementById("year")
+  year.innerText = row.dataset.year;
+
+
+    //для картинки
+  const imageUrl = row.dataset.image;
+  const image = document.getElementById('image');
+  image.setAttribute('src', imageUrl);
+
   // находим все теги tr, которые внутри tbody, который внутри тега с классом table
   document.querySelectorAll(".table tbody tr").forEach(el => {
       el.classList.remove("table-info"); // удаляем у них класс table-info
@@ -77,8 +109,15 @@ function onRowClick(row) {
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"> 
+    </script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   </body>
 </html>
