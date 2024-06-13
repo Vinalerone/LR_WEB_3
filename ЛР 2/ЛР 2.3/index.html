@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+<style>
+  .table tr td:hover { /* :hover -- это псевдо класс, добавляется когда наводишь на элемент мышку */
+    cursor: pointer; /*курсор -- указатель*/
+  }
+</style>
+<div class="container">
+<div class="row">
+  <div class="col-md-8">
+  <table class="table  table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Название</th>
+        <th>Рейтинг</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr data-title="Унесённые призраками" data-rating="8.4" data-year="2001" data-director="Хаяо Миядзаки"  data-image="https://avatars.mds.yandex.net/get-mpic/5129282/img_id5883061616424619166.jpeg/orig" onclick="onRowClick(this)">
+    <td>Унесённые призраками</td>
+    <td>8.4</td>
+</tr>
+<tr data-title="Малхолланд Драйв" data-rating="7.6" data-year="2002" data-director="Дэвид Линч" data-image="https://cdn.ananasposter.ru/image/cache/catalog/poster/film/78/28155-1000x830.jpg" onclick="onRowClick(this)">
+    <td>Малхолланд Драйв</td>
+    <td>7.6</td>
+</tr>
+<tr  data-title="Мертвец" data-rating="7.8" data-year="1995" data-director="Джим Джармуш" data-image="https://avatars.dzeninfra.ru/get-zen_doc/3957666/pub_60742c8f6737a93fac22c9d8_6075ea23bfba535c1a26c11a/scale_1200" onclick="onRowClick(this)">
+    <td>Мертвец</td>
+    <td>7.8</td>
+</tr>
+    </tbody>
+  </table>
+    </div>
+	
+	  <div class="col-md-4">
+            <div class="shadow p-2 text-center">
+           <span id="title">Название</span>
+		   <span id="image">Картинка</span>
+        </div>
+  </div>
+	
+	
+	</div>
+</div>
+  
+  <script>
+  function onRowClick(rw) {
+  console.log(rw.dataset);
+    console.log(rw);
+	 console.log(rw.dataset.year);
+  }
+</script>
+
+<script>
+
+function onRowClick(row) {
+  let title = document.getElementById("title")
+  title.innerText = row.dataset.title;
+    
+  // находим все теги tr, которые внутри tbody, который внутри тега с классом table
+  document.querySelectorAll(".table tbody tr").forEach(el => {
+      el.classList.remove("table-info"); // удаляем у них класс table-info
+  })
+  row.classList.add("table-info");
+}
+</script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
