@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+<div class="container p-2">
+<!-- 1 строка -->
+  <div class="row align-items-center m-2">
+    <div class="col">
+      <input id="textField" class="form-control" />
+    </div>
+  </div>
+  <!-- 2 строка -->
+    <div class="row align-items-center m-2">
+    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">7</button>
+    </div>
+	
+    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">8</button>
+    </div>
+	
+	    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">9</button>
+    </div>
+	
+	    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">*</button>
+    </div>
+	
+  </div>
+  <!-- 3 строка -->
+    <div class="row align-items-center m-2">
+    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">4</button>
+    </div>
+	
+    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">5</button>
+    </div>
+	
+	    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">6</button>
+    </div>
+	
+	    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">/</button>
+    </div>
+	
+  </div>
+  <!-- 4 строка -->
+    <div class="row align-items-center m-2">
+    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">1</button>
+    </div>
+	
+    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">2</button>
+    </div>
+	
+	    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">3</button>
+    </div>
+	
+	    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">+</button>
+    </div>
+	
+  </div>
+  <!-- 5 строка -->
+    <div class="row align-items-center m-2">
+    <div class="col-9">
+      <button class="btn btn-primary w-100" onclick="onButtonClick(this)">0</button>
+    </div>
+	
+	    <div class="col-3">
+      <button class="btn btn-primary w-100" onclick="onButtonClick1(this)">=</button>
+    </div>
+	
+  </div>
+  
+  
+</div>
+
+  <script>
+    function onButtonClick1(btn) {
+      let textField = document.getElementById("textField");
+      let code = textField.value;
+      textField.value = eval(code);
+    }
+	
+function onButtonClick(btn) {
+  let textField = document.getElementById("textField");
+  let button = btn;  
+  textField.value += button.innerText;  // Добавляем текст с кнопки к существующему тексту в поле для ввода
+}
+
+	
+  </script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
