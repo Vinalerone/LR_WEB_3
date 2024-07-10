@@ -25,12 +25,12 @@ async function process() {
     /*// после того как этот запросы выполнится 
     // в data будет содержимое файла в виде словарика
     // выведем его в консоль*/
-   // console.log(data);* /
+   console.log(data);
 
     // взял первый отзыв
-    let item = data[0];
+  //  let item = data[0];
     // вывел в консоль
-    console.log(item);
+  //  console.log(item);
 }
 
  /* // запускаем функцию*/
