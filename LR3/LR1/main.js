@@ -10,7 +10,7 @@ async function process() {
     // наличие слеша перед data.json вообще в данном случае не обязательно
     // но считается хорошей практикой
     // await означает типа: жди ответа на запроса*/
-    let r = await fetch("/data.json");
+    let r = await fetch("data.json");
 
     /*// когда ответ на запрос придет, 
     // то его значение положится
@@ -25,12 +25,12 @@ async function process() {
     /*// после того как этот запросы выполнится 
     // в data будет содержимое файла в виде словарика
     // выведем его в консоль*/
-   console.log(data);
+  // console.log(data);
 
     // взял первый отзыв
-  //  let item = data[0];
+    let item = data[0];
     // вывел в консоль
-  //  console.log(item);
+    console.log(item);
 }
 
  /* // запускаем функцию*/
