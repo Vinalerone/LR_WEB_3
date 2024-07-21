@@ -1,14 +1,16 @@
 async function process() {
   let r = await fetch("data.json");
   let data = await r.json();
- // console.log(data) // выведем исходный список
+  console.log(data) // выведем исходный список
   
   let mappedData = data.map(item => {
       return item;
   }) // мэпю
- // console.log(mappedData)  // выведем отображенный список
+  console.log(mappedData)  // выведем отображенный список
 }
+
 process()
+
 async function process2() {
   let r = await fetch("data.json");
   let data = await r.json();
@@ -17,13 +19,13 @@ async function process2() {
   let mappedData = data.map(item => {
     return item['Насколько курс был полезен?']; // добавил конкретный ключ
 }) 
-//console.log(mappedData)
+console.log(mappedData)
 
 let uniqueValues = [...new Set(mappedData)] // это такой хитрый способ перегнать множество в список
-//console.log(uniqueValues)
+console.log(uniqueValues)
 
 let select = document.querySelector("#selectPoleznost");
-//console.log(select)
+console.log(select)
 
 uniqueValues.forEach(item => {
   // создаем в памяти элемент выпадающего списка
@@ -36,6 +38,7 @@ uniqueValues.forEach(item => {
 })
 }
 process2();
+
 async function process3() {
   let r = await fetch("data.json");
   let data = await r.json();
@@ -44,13 +47,13 @@ async function process3() {
   let mappedData = data.map(item => {
     return item['Отметь, в какой мере ты удовлетворен курсом?']; // добавил конкретный ключ
 }) 
-//console.log(mappedData)
+console.log(mappedData)
 
 let uniqueValues = [...new Set(mappedData)] // это такой хитрый способ перегнать множество в список
-//console.log(uniqueValues)
+console.log(uniqueValues)
 
 let select = document.querySelector("#selectPoleznost2");
-//console.log(select)
+console.log(select)
 
 uniqueValues.forEach(item => {
   // создаем в памяти элемент выпадающего списка
@@ -63,6 +66,7 @@ uniqueValues.forEach(item => {
 })
 }
 process3();
+
 async function process4() {
   let r = await fetch("data.json");
   let data = await r.json();
@@ -71,13 +75,13 @@ async function process4() {
   let mappedData = data.map(item => {
     return item['Насколько доволен форматом обучения?']; // добавил конкретный ключ
 }) 
-//console.log(mappedData)
+console.log(mappedData)
 
 let uniqueValues = [...new Set(mappedData)] // это такой хитрый способ перегнать множество в список
-//console.log(uniqueValues)
+console.log(uniqueValues)
 
 let select = document.querySelector("#selectPoleznost3");
-//console.log(select)
+console.log(select)
 
 uniqueValues.forEach(item => {
   // создаем в памяти элемент выпадающего списка
@@ -91,29 +95,45 @@ uniqueValues.forEach(item => {
 }
 process4();
 
-async function fillList() {
+async function process5() {
   let r = await fetch("data.json");
   let data = await r.json();
 
-let container = document.querySelector("#elements-container > tbody");
+  let filteredData = [1, 2, 3, 4].filter(item => {
+      return item > 1 && item < 4;
+  });
+
+  console.log(filteredData);
+
+  // Фильтрация данных из переменной data
+  let filteredDataFromData = data.filter(item => item["Насколько курс был полезен?"] == "Полезный");
+  console.log(filteredDataFromData);
+}
+
+process5();
+
+async function fillList() {
+  let r = await fetch("data.json");
+  let data = await r.json();
+  console.log(data);
+
+  let container = document.querySelector("#elements-container > tbody");
 console.log(container)
 
-let selectPoleznost = document.querySelector("#selectPoleznost");
+let selectPoleznost = document.querySelector("#selectPoleznost")
+
+
+
 
 let  filteredDataFromData = data.filter(item => item["Насколько курс был полезен?"] == selectPoleznost.value);
 
 container.replaceChildren() //удаляет строчки таблицы
 
-console.clear();
 let filteredData = data.filter(item => {
   // чтобы не получалось сильно длинных строчек, я перепишу анонимную функцию через return
   if (selectPoleznost.value == 'не важно') {
-   //console.clear();
-    console.log(selectPoleznost.value+'1');
     return item['Насколько курс был полезен?'] == selectPoleznost.value;
   }
-  //console.clear();
-  console.log(selectPoleznost.value+'2');
 })
 
 filteredDataFromData.forEach(item => {
@@ -127,6 +147,7 @@ filteredDataFromData.forEach(item => {
   `);
 })
 }
+fillList()
 
 function onSelectPoleznostChanged() {
   let selectPoleznost = document.querySelector("#selectPoleznost");

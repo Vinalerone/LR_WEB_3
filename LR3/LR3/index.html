@@ -11,25 +11,13 @@
 
 <body>
 
-  <!-- <form class="col-3 mt-2 m-2">
-
-    <div class="container">
-      <div class="row">
-        Полезность
-        <div class="col-3">
-          <div>
-            <select class="form-select" id="selectPoleznost"></select>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </form> -->
-
   <form class="row g-1">
     <div class="col-md-2 m-2">
       <label  class="form-label">Полезность</label>
-      <select class="form-select" id="selectPoleznost"></select>
+      <select class="form-select" id="selectPoleznost" onchange="onSelectPoleznostChanged()"> 
+      <option value="не важно" id="selectPoleznost" onchange="onSelectPoleznostChanged()">не важно</option>
+    </select>
+
     </div>
     <div class="col-md-2 m-2">
       <label  class="form-label">Насколько доволен?</label>
@@ -49,7 +37,7 @@
         <tr>
           <th>ID</th>
           <th>Полезность</th>
-          <select class="form-select" id="selectPoleznost" onchange="onSelectPoleznostChanged()"> </select>
+          <!-- <select class="form-select" id="selectPoleznost" onchange="onSelectPoleznostChanged()"> </select> -->
           <th>Довольность</th>
           <th>Удовлетворенность</th>
         </tr>
