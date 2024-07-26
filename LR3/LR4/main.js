@@ -219,7 +219,7 @@ poleznostStatsNode3.innerText = JSON.stringify(poleznostCounters3);
 //Конкатенация двух массивов (вывод 2 массива одновременно ._.)
 //let combinedFilteredData = filteredDataFromData.concat(filteredDataFromData2);
 
-// Фильтрация данных, чтобы получить элементы, которые присутствуют в обоих массивах
+// Фильтрация данных, чтобы получить элементы, которые присутствуют в трёх массивах
 //чат ГПТ
 let combinedFilteredData = filteredDataFromData.filter(item1 => {
   return filteredDataFromData2.some(item2 => {
@@ -227,25 +227,53 @@ let combinedFilteredData = filteredDataFromData.filter(item1 => {
   });
 });
 
-//Попытка объединить словари
+// let combinedFilteredData4 = poleznostCounters.filter(item1 => {
+//   return poleznostCounters2.some(item2 => {
+//     return poleznostCounters3.some(item3 => item3.ID === item2.ID && item2.ID === item1.ID);
+//   });
+// });
 
+
+
+//console.log(combinedFilteredData4);
+//console.log(filteredDataFromData2);
+//console.log(filteredDataFromData3);
+
+//Попытка сделать пересечение у словарей
+
+
+// let combinedFilteredData2 = poleznostCounters.filter(item1 => {
+//   return poleznostCounters2.some(item2 => {
+//       return poleznostCounters3.some(item3 => item3['ID'] === item2['ID'] && item2['ID'] === item1['ID']);
+//   });
+// });
+
+// console.log(combinedFilteredData2);
 let poleznostCounters11 = {}; 
 
-poleznost.forEach(item => {
-  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+poleznost.forEach(element => {
+  poleznostCounters11[element] = (poleznostCounters11[element] || 0) + 1;
+ // console.log(poleznostCounters11);
 });
 
-poleznost2.forEach(item => {
-  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+combinedFilteredData.forEach(item => {
+  poleznost2.forEach(element => {
+    poleznostCounters11[element] = (poleznostCounters11[element] || 0) + 1;
+   // console.log(poleznostCounters11);
+  });
 });
 
-poleznost3.forEach(item => {
-  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+combinedFilteredData.forEach(item => {
+  poleznost3.forEach(element => {
+    poleznostCounters11[element] = (poleznostCounters11[element] || 0) + 1;
+   // console.log(poleznostCounters11);
+  });
 });
 
-console.log(poleznostCounters11);
-console.log('1');
+//console.log(poleznostCounters11);
 
+
+//console.log('1');
 //??
 
 
@@ -289,4 +317,41 @@ function onSelectPoleznostChanged3() {
   fillList();
 }
 
+
+
+
 onSelectPoleznostChanged3();
+
+
+
+//Функция для фильтрации по значениям,
+//которые присутствуют во всех трех исходных словарях
+async function filterPoleznost(data) {
+  let filterResult = data.filter(item => item['Насколько курс был полезен?'] == 'Очень полезный');
+  console.log('filterResult');
+  console.log(filterResult);
+  return filterResult;
+}
+
+async function myFilter(data,condition, value) {
+  let filterResult = data.filter(item => item[condition] == value);
+  console.log('filterResult');
+  console.log(filterResult);
+  return filterResult;
+}
+
+async function filterDovonost(data){
+    let r = await fetch("data.json");
+    data = await r.json();
+    console.log(data);
+    let resultDovolnData = data.filter(item => item['Насколько доволен форматом обучения?'] == 'Очень доволен');
+    console.log(resultDovolnData);
+    resultDovolnPoleznFilters = filterPoleznost(resultDovolnData,'Очень доволен');
+    console.log('resultdata');
+   console.log(resultDovolnPoleznFilters);
+   filteredData2 = myFilter(resultDovolnPoleznFilters, 'Отметь, в какой мере ты удовлетворен курсом?', 'В основном');
+  console.log(filteredData2);
+    return resultDovolnPoleznFilters;
+  }
+
+    filterDovonost()
