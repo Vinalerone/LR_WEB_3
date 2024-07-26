@@ -229,36 +229,21 @@ let combinedFilteredData = filteredDataFromData.filter(item1 => {
 
 //Попытка объединить словари
 
-let poleznostCounters33 = {}; // создаем пустой словарь
-poleznost3.forEach(item => {
-    poleznostCounters33[item] = (poleznostCounters33[item] || 0) + 1;
-});
+let poleznostCounters11 = {}; 
 
-console.log(poleznostCounters33);
-
-let poleznostCounters11 = {}; // создаем пустой словарь
 poleznost.forEach(item => {
-    poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
 });
 
-console.log(poleznostCounters11);
-
-let poleznostCounters22 = {}; // создаем пустой словарь
 poleznost2.forEach(item => {
-    poleznostCounters22[item] = (poleznostCounters22[item] || 0) + 1;
+  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
 });
 
-console.log(poleznostCounters22);
+poleznost3.forEach(item => {
+  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+});
 
-// Объединяем словари poleznostCounters11 и poleznostCounters22
-let combinedCounters = {...poleznostCounters11, ...poleznostCounters22};
-
-// Объединяем combinedCounters со словарем poleznostCounters33
-for (let key in poleznostCounters33) {
-    combinedCounters[key] = (combinedCounters[key] || 0) + poleznostCounters33[key];
-}
-
-console.log(combinedCounters);
+console.log(poleznostCounters11)
 
 //??
 
