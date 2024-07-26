@@ -122,8 +122,8 @@ let filteredData = data.filter(item => {
 })
 
 let poleznost = filteredDataFromData.map(item => item['Насколько курс был полезен?']);
-console.log("Значения в столбике полезность:")
-console.log(poleznost)
+//console.log("Значения в столбике полезность:")
+//console.log(poleznost)
 
 let poleznostCounters = {} // заводим пустой словарик
 poleznost.forEach(item => { // с помощью forEach, обходим элементы списка
@@ -135,7 +135,7 @@ poleznost.forEach(item => { // с помощью forEach, обходим эле�
     poleznostCounters[item] = (poleznostCounters[item] | 0) + 1
 })
 // ну и выводим
-console.log(poleznostCounters)
+//console.log(poleznostCounters)
 
 let poleznostStatsNode = document.querySelector("#poleznostStats .stats")
 poleznostStatsNode.innerText = JSON.stringify(poleznostCounters);
@@ -164,8 +164,8 @@ let filteredData2 = data.filter(item => {
 })
 
 let poleznost2 = filteredDataFromData2.map(item => item['Насколько доволен форматом обучения?']);
-console.log("Значения в столбике полезность:")
-console.log(poleznost2)
+//console.log("Значения в столбике полезность:")
+//console.log(poleznost2)
 
 let poleznostCounters2 = {} // заводим пустой словарик
 poleznost2.forEach(item => { // с помощью forEach, обходим элементы списка
@@ -177,7 +177,7 @@ poleznost2.forEach(item => { // с помощью forEach, обходим эле
     poleznostCounters2[item] = (poleznostCounters2[item] | 0) + 1
 })
 // ну и выводим
-console.log(poleznostCounters2)
+//console.log(poleznostCounters2)
 
 let poleznostStatsNode2 = document.querySelector("#poleznostStats2 .stats")
 poleznostStatsNode2.innerText = JSON.stringify(poleznostCounters2);
@@ -195,8 +195,8 @@ let filteredData3 = data.filter(item => {
 })
 
 let poleznost3 = filteredDataFromData3.map(item => item['Отметь, в какой мере ты удовлетворен курсом?']);
-console.log("Значения в столбике полезность:")
-console.log(poleznost3)
+//console.log("Значения в столбике полезность:")
+//console.log(poleznost3)
 
 let poleznostCounters3 = {} // заводим пустой словарик
 poleznost3.forEach(item => { // с помощью forEach, обходим элементы списка
@@ -208,7 +208,7 @@ poleznost3.forEach(item => { // с помощью forEach, обходим эле
     poleznostCounters3[item] = (poleznostCounters3[item] | 0) + 1
 })
 // ну и выводим
-console.log(poleznostCounters3)
+//console.log(poleznostCounters3)
 
 let poleznostStatsNode3 = document.querySelector("#poleznostStats3 .stats")
 poleznostStatsNode3.innerText = JSON.stringify(poleznostCounters3);
@@ -226,6 +226,42 @@ let combinedFilteredData = filteredDataFromData.filter(item1 => {
       return filteredDataFromData3.some(item3 => item3['ID'] === item2['ID'] && item2['ID'] === item1['ID']);
   });
 });
+
+//Попытка объединить словари
+
+let poleznostCounters33 = {}; // создаем пустой словарь
+poleznost3.forEach(item => {
+    poleznostCounters33[item] = (poleznostCounters33[item] || 0) + 1;
+});
+
+console.log(poleznostCounters33);
+
+let poleznostCounters11 = {}; // создаем пустой словарь
+poleznost.forEach(item => {
+    poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+});
+
+console.log(poleznostCounters11);
+
+let poleznostCounters22 = {}; // создаем пустой словарь
+poleznost2.forEach(item => {
+    poleznostCounters22[item] = (poleznostCounters22[item] || 0) + 1;
+});
+
+console.log(poleznostCounters22);
+
+// Объединяем словари poleznostCounters11 и poleznostCounters22
+let combinedCounters = {...poleznostCounters11, ...poleznostCounters22};
+
+// Объединяем combinedCounters со словарем poleznostCounters33
+for (let key in poleznostCounters33) {
+    combinedCounters[key] = (combinedCounters[key] || 0) + poleznostCounters33[key];
+}
+
+console.log(combinedCounters);
+
+//??
+
 
 // Вставка данных в контейнер
 combinedFilteredData.forEach(item => {
