@@ -243,7 +243,8 @@ poleznost3.forEach(item => {
   poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
 });
 
-console.log(poleznostCounters11)
+console.log(poleznostCounters11);
+console.log('1');
 
 //??
 
