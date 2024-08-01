@@ -384,6 +384,12 @@ async function filterDovonost() {
     } 
 });
 
+poleznost4.forEach(item => {
+  if (selectedValue == 'не важно') {
+      poleznostCounters[item] = (poleznostCounters[item] || 0) + 1;
+  } 
+});
+
   console.log(poleznostCounters);
 }
 
