@@ -141,11 +141,11 @@ let poleznostStatsNode = document.querySelector("#poleznostStats .stats")
 poleznostStatsNode.innerText = JSON.stringify(poleznostCounters);
 
 
-let container2 = document.querySelector("#elements-container > tbody");
+//let container2 = document.querySelector("#elements-container > tbody");
 let selectPoleznost2 = document.querySelector("#selectPoleznost2");
 let  filteredDataFromData2 = data.filter(item => item["Насколько доволен форматом обучения?"] == selectPoleznost2.value);
 
-container2.replaceChildren()
+//container2.replaceChildren()
 
 let filteredData2 = data.filter(item => {
   if (selectPoleznost2.value == 'не важно') {
@@ -182,11 +182,11 @@ poleznost2.forEach(item => { // с помощью forEach, обходим эле
 let poleznostStatsNode2 = document.querySelector("#poleznostStats2 .stats")
 poleznostStatsNode2.innerText = JSON.stringify(poleznostCounters2);
 
-let container3 = document.querySelector("#elements-container > tbody");
+//let container3 = document.querySelector("#elements-container > tbody");
 let selectPoleznost3 = document.querySelector("#selectPoleznost3");
 let filteredDataFromData3 = data.filter(item => item["Отметь, в какой мере ты удовлетворен курсом?"] == selectPoleznost3.value);
 
-container3.replaceChildren()
+//container3.replaceChildren()
 
 let filteredData3 = data.filter(item => {
   if (selectPoleznost3.value == 'не важно') {
@@ -363,3 +363,27 @@ async function filterDovonost(data){
 //  // console.log(filterResult);
 //   return filterResult;
 // }
+
+// ну, не работает, ничего не поделаю...
+async function filterDovonost() {
+  let r = await fetch("data.json");
+  let data = await r.json();
+
+//кнопка не читает знаечние :(
+  let selectPoleznost4 = document.querySelector("#selectPoleznost");
+
+  let filteredData = data.filter(item => item['Отметь, в какой мере ты удовлетворен курсом?'] === 'Полностью удовлетворен');
+
+  let poleznostCounters = {};
+
+  filteredData.forEach(item => {
+    let value = item['Отметь, в какой мере ты удовлетворен курсом?'];
+    if (poleznostCounters[value]) {
+      poleznostCounters[value]++;
+    } else {
+      poleznostCounters[value] = 1;
+    }
+  });
+
+  console.log(poleznostCounters);
+}
