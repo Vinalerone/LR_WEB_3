@@ -328,30 +328,38 @@ onSelectPoleznostChanged3();
 //которые присутствуют во всех трех исходных словарях
 async function filterPoleznost(data) {
   let filterResult = data.filter(item => item['Насколько курс был полезен?'] == 'Очень полезный');
-  console.log('filterResult');
-  console.log(filterResult);
+  //console.log('filterResult');
+  //console.log(filterResult);
   return filterResult;
 }
 
-async function myFilter(data,condition, value) {
-  let filterResult = data.filter(item => item[condition] == value);
-  console.log('filterResult');
-  console.log(filterResult);
-  return filterResult;
-}
+// async function myFilter(data,condition, value) {  //раскомментировать при продолжении построении функции
+//   let filterResult = data.filter(item => item[condition] == value);
+//   console.log('filterResult');
+//   console.log(filterResult);
+//   return filterResult;
+// }
 
 async function filterDovonost(data){
     let r = await fetch("data.json");
     data = await r.json();
-    console.log(data);
+   // console.log(data);
     let resultDovolnData = data.filter(item => item['Насколько доволен форматом обучения?'] == 'Очень доволен');
-    console.log(resultDovolnData);
+   // console.log(resultDovolnData);
     resultDovolnPoleznFilters = filterPoleznost(resultDovolnData,'Очень доволен');
-    console.log('resultdata');
-   console.log(resultDovolnPoleznFilters);
-   filteredData2 = myFilter(resultDovolnPoleznFilters, 'Отметь, в какой мере ты удовлетворен курсом?', 'В основном');
-  console.log(filteredData2);
+   // console.log('resultdata');
+  // console.log(resultDovolnPoleznFilters);
+  //  filteredData2 = myFilter(resultDovolnPoleznFilters, 'Отметь, в какой мере ты удовлетворен курсом?', 'В основном');
+  // console.log(filteredData2);
     return resultDovolnPoleznFilters;
   }
 
     filterDovonost()
+// РЕДАКТИРОВАТЬ НИЖЕ
+
+// async function filterPoleznost(data) {
+//   let filterResult = data.filter(item => item['Насколько курс был полезен?'] == 'Очень полезный');
+//  // console.log('filterResult');
+//  // console.log(filterResult);
+//   return filterResult;
+// }
