@@ -151,7 +151,7 @@ let filteredData2 = data.filter(item => {
   if (selectPoleznost2.value == 'не важно') {
    //console.clear();
     //console.log(selectPoleznost2.value+'1');
-    container2 = document.querySelector("#elements-container > tbody");
+   // container2 = document.querySelector("#elements-container > tbody");
     selectPoleznost2 = document.querySelector("#selectPoleznost2");
    // console.log(selectPoleznost2.value+'1.1');
    // console.log(item['Насколько доволен форматом обучения?'] );
@@ -310,17 +310,14 @@ function onSelectPoleznostChanged2() {
 
 onSelectPoleznostChanged2();
 
-function onSelectPoleznostChanged3() {
-  let selectPoleznost3 = document.querySelector("#selectPoleznost3");
-  // selectPoleznost.addEventListener('change', () => {
-  //console.log(selectPoleznost.value+'22');
-  fillList();
-}
+// function onSelectPoleznostChanged3() {
+//   let selectPoleznost3 = document.querySelector("#selectPoleznost3");
+//   // selectPoleznost.addEventListener('change', () => {
+//   //console.log(selectPoleznost.value+'22');
+//   fillList();
+// }
 
-
-
-
-onSelectPoleznostChanged3();
+// onSelectPoleznostChanged3();
 
 
 
@@ -370,20 +367,34 @@ async function filterDovonost() {
   let data = await r.json();
 
 //кнопка не читает знаечние :(
-  let selectPoleznost4 = document.querySelector("#selectPoleznost");
+  
+  let selectElement = document.querySelector(".form-select#selectPoleznost3");
+  selectedValue = selectElement.value;
 
-  let filteredData = data.filter(item => item['Отметь, в какой мере ты удовлетворен курсом?'] === 'Полностью удовлетворен');
+ // console.log(selectedValue+'22')
 
+  let poleznost4 = data.map(item => item['Отметь, в какой мере ты удовлетворен курсом?']);
+//console.log(poleznost4)
+  //console.log(selectPoleznost4);
   let poleznostCounters = {};
 
-  filteredData.forEach(item => {
-    let value = item['Отметь, в какой мере ты удовлетворен курсом?'];
-    if (poleznostCounters[value]) {
-      poleznostCounters[value]++;
-    } else {
-      poleznostCounters[value] = 1;
-    }
-  });
+  poleznost4.forEach(item => {
+    if (item === selectedValue) {
+        poleznostCounters[item] = (poleznostCounters[item] || 0) + 1;
+    } 
+});
 
   console.log(poleznostCounters);
 }
+
+
+function onSelectPoleznostChanged3() {
+  let selectElement = document.querySelector(".form-select#selectPoleznost3");
+  selectedValue = selectElement.value;
+
+  console.log("Выбранное значение изменилось на: " + selectedValue);
+  filterDovonost();
+  fillList();
+}
+
+onSelectPoleznostChanged3()
