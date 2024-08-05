@@ -137,21 +137,21 @@ poleznost.forEach(item => { // с помощью forEach, обходим эле�
 // ну и выводим
 //console.log(poleznostCounters)
 
-let poleznostStatsNode = document.querySelector("#poleznostStats .stats")
-poleznostStatsNode.innerText = JSON.stringify(poleznostCounters);
+//let poleznostStatsNode = document.querySelector("#poleznostStats .stats")
+//poleznostStatsNode.innerText = JSON.stringify(poleznostCounters);
 
 
-let container2 = document.querySelector("#elements-container > tbody");
+//let container2 = document.querySelector("#elements-container > tbody");
 let selectPoleznost2 = document.querySelector("#selectPoleznost2");
 let  filteredDataFromData2 = data.filter(item => item["Насколько доволен форматом обучения?"] == selectPoleznost2.value);
 
-container2.replaceChildren()
+//container2.replaceChildren()
 
 let filteredData2 = data.filter(item => {
   if (selectPoleznost2.value == 'не важно') {
    //console.clear();
     //console.log(selectPoleznost2.value+'1');
-    container2 = document.querySelector("#elements-container > tbody");
+   // container2 = document.querySelector("#elements-container > tbody");
     selectPoleznost2 = document.querySelector("#selectPoleznost2");
    // console.log(selectPoleznost2.value+'1.1');
    // console.log(item['Насколько доволен форматом обучения?'] );
@@ -179,14 +179,14 @@ poleznost2.forEach(item => { // с помощью forEach, обходим эле
 // ну и выводим
 //console.log(poleznostCounters2)
 
-let poleznostStatsNode2 = document.querySelector("#poleznostStats2 .stats")
-poleznostStatsNode2.innerText = JSON.stringify(poleznostCounters2);
+//let poleznostStatsNode2 = document.querySelector("#poleznostStats2 .stats")
+//poleznostStatsNode2.innerText = JSON.stringify(poleznostCounters2);
 
-let container3 = document.querySelector("#elements-container > tbody");
+//let container3 = document.querySelector("#elements-container > tbody");
 let selectPoleznost3 = document.querySelector("#selectPoleznost3");
 let filteredDataFromData3 = data.filter(item => item["Отметь, в какой мере ты удовлетворен курсом?"] == selectPoleznost3.value);
 
-container3.replaceChildren()
+//container3.replaceChildren()
 
 let filteredData3 = data.filter(item => {
   if (selectPoleznost3.value == 'не важно') {
@@ -210,8 +210,8 @@ poleznost3.forEach(item => { // с помощью forEach, обходим эле
 // ну и выводим
 //console.log(poleznostCounters3)
 
-let poleznostStatsNode3 = document.querySelector("#poleznostStats3 .stats")
-poleznostStatsNode3.innerText = JSON.stringify(poleznostCounters3);
+//let poleznostStatsNode3 = document.querySelector("#poleznostStats3 .stats")
+//poleznostStatsNode3.innerText = JSON.stringify(poleznostCounters3);
 
 
 
@@ -219,7 +219,7 @@ poleznostStatsNode3.innerText = JSON.stringify(poleznostCounters3);
 //Конкатенация двух массивов (вывод 2 массива одновременно ._.)
 //let combinedFilteredData = filteredDataFromData.concat(filteredDataFromData2);
 
-// Фильтрация данных, чтобы получить элементы, которые присутствуют в обоих массивах
+// Фильтрация данных, чтобы получить элементы, которые присутствуют в трёх массивах
 //чат ГПТ
 let combinedFilteredData = filteredDataFromData.filter(item1 => {
   return filteredDataFromData2.some(item2 => {
@@ -227,25 +227,53 @@ let combinedFilteredData = filteredDataFromData.filter(item1 => {
   });
 });
 
-//Попытка объединить словари
+// let combinedFilteredData4 = poleznostCounters.filter(item1 => {
+//   return poleznostCounters2.some(item2 => {
+//     return poleznostCounters3.some(item3 => item3.ID === item2.ID && item2.ID === item1.ID);
+//   });
+// });
 
+
+
+//console.log(combinedFilteredData4);
+//console.log(filteredDataFromData2);
+//console.log(filteredDataFromData3);
+
+//Попытка сделать пересечение у словарей
+
+
+// let combinedFilteredData2 = poleznostCounters.filter(item1 => {
+//   return poleznostCounters2.some(item2 => {
+//       return poleznostCounters3.some(item3 => item3['ID'] === item2['ID'] && item2['ID'] === item1['ID']);
+//   });
+// });
+
+// console.log(combinedFilteredData2);
 let poleznostCounters11 = {}; 
 
-poleznost.forEach(item => {
-  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+poleznost.forEach(element => {
+  poleznostCounters11[element] = (poleznostCounters11[element] || 0) + 1;
+ // console.log(poleznostCounters11);
 });
 
-poleznost2.forEach(item => {
-  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+combinedFilteredData.forEach(item => {
+  poleznost2.forEach(element => {
+    poleznostCounters11[element] = (poleznostCounters11[element] || 0) + 1;
+   // console.log(poleznostCounters11);
+  });
 });
 
-poleznost3.forEach(item => {
-  poleznostCounters11[item] = (poleznostCounters11[item] || 0) + 1;
+combinedFilteredData.forEach(item => {
+  poleznost3.forEach(element => {
+    poleznostCounters11[element] = (poleznostCounters11[element] || 0) + 1;
+   // console.log(poleznostCounters11);
+  });
 });
 
-console.log(poleznostCounters11);
-console.log('1');
+//console.log(poleznostCounters11);
 
+
+//console.log('1');
 //??
 
 
@@ -282,11 +310,223 @@ function onSelectPoleznostChanged2() {
 
 onSelectPoleznostChanged2();
 
+// function onSelectPoleznostChanged3() {
+//   let selectPoleznost3 = document.querySelector("#selectPoleznost3");
+//   // selectPoleznost.addEventListener('change', () => {
+//   //console.log(selectPoleznost.value+'22');
+//   fillList();
+// }
+
+// onSelectPoleznostChanged3();
+
+
+
+//Функция для фильтрации по значениям,
+//которые присутствуют во всех трех исходных словарях
+async function filterPoleznost(data) {
+  let filterResult = data.filter(item => item['Насколько курс был полезен?'] == 'Очень полезный');
+  //console.log('filterResult');
+  //console.log(filterResult);
+  return filterResult;
+}
+
+// async function myFilter(data,condition, value) {  //раскомментировать при продолжении построении функции
+//   let filterResult = data.filter(item => item[condition] == value);
+//   console.log('filterResult');
+//   console.log(filterResult);
+//   return filterResult;
+// }
+
+async function filterDovonost(data){
+    let r = await fetch("data.json");
+    data = await r.json();
+   // console.log(data);
+    let resultDovolnData = data.filter(item => item['Насколько доволен форматом обучения?'] == 'Очень доволен');
+   // console.log(resultDovolnData);
+    resultDovolnPoleznFilters = filterPoleznost(resultDovolnData,'Очень доволен');
+   // console.log('resultdata');
+  // console.log(resultDovolnPoleznFilters);
+  //  filteredData2 = myFilter(resultDovolnPoleznFilters, 'Отметь, в какой мере ты удовлетворен курсом?', 'В основном');
+  // console.log(filteredData2);
+    return resultDovolnPoleznFilters;
+  }
+
+    filterDovonost()
+// РЕДАКТИРОВАТЬ НИЖЕ
+
+// async function filterPoleznost(data) {
+//   let filterResult = data.filter(item => item['Насколько курс был полезен?'] == 'Очень полезный');
+//  // console.log('filterResult');
+//  // console.log(filterResult);
+//   return filterResult;
+// }
+
+// ну, не работает, ничего не поделаю...
+async function filterDovonost() {
+  let r = await fetch("data.json");
+  let data = await r.json();
+
+//кнопка не читает знаечние :(
+  
+let selectElement3 = document.querySelector(".form-select#selectPoleznost3");
+let selectedValue3 = selectElement3.value;
+
+let selectElement = document.querySelector(".form-select#selectPoleznost");
+let selectedValue = selectElement.value;
+
+let selectElement2 = document.querySelector(".form-select#selectPoleznost2");
+let selectedValue2 = selectElement2.value;
+
+let poleznost4 = data.map(item => item['Отметь, в какой мере ты удовлетворен курсом?']);
+let poleznost5 = data.map(item => item['Насколько доволен форматом обучения?']);
+let poleznost6 = data.map(item => item['Насколько курс был полезен?']);
+
+let combinedArray = poleznost4.map((item, index) => [item, poleznost5[index], poleznost6[index]]);
+
+let poleznostCounters = [{}, {}, {}];
+
+combinedArray.forEach(pair => {
+  const item4 = pair[0];
+  const item5 = pair[1];
+  const item6 = pair[2];
+//1
+  if (selectedValue3 === 'не важно' && selectedValue2 === 'не важно' && selectedValue === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+  if (selectedValue3 === 'не важно' && selectedValue2 === 'не важно' &&  selectedValue === item6) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+//1
+  if (selectedValue3 === 'не важно' &&  selectedValue2 === item5 && selectedValue === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+  if (selectedValue3 === 'не важно' &&  selectedValue2 === item5 &&  selectedValue === item6) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+//1
+  if (selectedValue3 === item4 &&  selectedValue2 === 'не важно' && selectedValue === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+  if (selectedValue3 === item4 &&  selectedValue2 === 'не важно' &&  selectedValue === item6) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+//1
+  if (selectedValue3 === item4 &&  selectedValue2 === item5 && selectedValue === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+  if (selectedValue3 == item4 &&  selectedValue2 == item5 &&  selectedValue == item6) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+});
+  console.log(poleznostCounters);
+  //console.log(Object.keys(poleznostCounters[0])); // выводит массив ключей объекта с индексом 0
+ console.log(poleznostCounters[0]); // для вывода значения по ключу "ключ"
+ console.log(poleznostCounters[1]); // для вывода значения по ключу "ключ"
+ console.log(poleznostCounters[2]); // для вывода значения по ключу "ключ"
+/* console.log(poleznostCounters[0][item6]);
+  console.log(poleznostCounters[2]); // для вывода значения по ключу "ключ"*/
+  let poleznostStatsNode4 = document.querySelector("#poleznostStats .stats")
+  poleznostStatsNode4.innerText = JSON.stringify(poleznostCounters[0]);
+
+  let poleznostStatsNode5 = document.querySelector("#poleznostStats2 .stats")
+poleznostStatsNode5.innerText = JSON.stringify(poleznostCounters[1]);
+
+let poleznostStatsNode6 = document.querySelector("#poleznostStats3 .stats")
+poleznostStatsNode6.innerText = JSON.stringify(poleznostCounters[2]);
+
+
+
+}
+ /* if (selectedValue3 === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    if (selectedValue2 === 'не важно') {
+      poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    } 
+    else if (selectedValue2 === item5) {
+      poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    }
+  } 
+  else if (selectedValue3 === item4) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    if (selectedValue2 === 'не важно') {
+      poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    } 
+    else if (selectedValue2 === item5) {
+      poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    } 
+  } 
+});*/
+
+
+
+  
+
+
+//   poleznost4.forEach(item => {
+//     poleznost5.forEach(item => {
+//       poleznost6.forEach(item => {
+//     if (item === selectedValue) {
+//         poleznostCounters[item] = (poleznostCounters[item] || 0) + 1;
+//     } 
+// });
+
+// poleznost4.forEach(item => {
+//    if (selectedValue == 'не важно') {
+//        poleznostCounters[item] = (poleznostCounters[item] || 0) + 1;
+//   } 
+//  });
+
+
 function onSelectPoleznostChanged3() {
-  let selectPoleznost3 = document.querySelector("#selectPoleznost3");
-  // selectPoleznost.addEventListener('change', () => {
-  //console.log(selectPoleznost.value+'22');
+  let selectElement = document.querySelector(".form-select#selectPoleznost3");
+  selectedValue = selectElement.value;
+
+  console.log("Выбранное значение изменилось на: " + selectedValue);
+  filterDovonost();
   fillList();
 }
 
-onSelectPoleznostChanged3();
+onSelectPoleznostChanged2()
+
+function onSelectPoleznostChanged2() {
+  let selectElement = document.querySelector(".form-select#selectPoleznost2");
+  selectedValue2 = selectElement.value;
+
+  console.log("Выбранное значение изменилось на: " + selectedValue2);
+  filterDovonost();
+  fillList();
+}
+
+onSelectPoleznostChanged2()
+
+function onSelectPoleznostChanged() {
+  let selectElement = document.querySelector(".form-select#selectPoleznost");
+  selectedValue3 = selectElement.value;
+
+  console.log("Выбранное значение изменилось на: " + selectedValue3);
+  filterDovonost();
+  fillList();
+}
+
+onSelectPoleznostChanged()
