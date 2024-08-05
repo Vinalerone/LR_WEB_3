@@ -137,8 +137,8 @@ poleznost.forEach(item => { // с помощью forEach, обходим эле�
 // ну и выводим
 //console.log(poleznostCounters)
 
-let poleznostStatsNode = document.querySelector("#poleznostStats .stats")
-poleznostStatsNode.innerText = JSON.stringify(poleznostCounters);
+//let poleznostStatsNode = document.querySelector("#poleznostStats .stats")
+//poleznostStatsNode.innerText = JSON.stringify(poleznostCounters);
 
 
 //let container2 = document.querySelector("#elements-container > tbody");
@@ -179,8 +179,8 @@ poleznost2.forEach(item => { // с помощью forEach, обходим эле
 // ну и выводим
 //console.log(poleznostCounters2)
 
-let poleznostStatsNode2 = document.querySelector("#poleznostStats2 .stats")
-poleznostStatsNode2.innerText = JSON.stringify(poleznostCounters2);
+//let poleznostStatsNode2 = document.querySelector("#poleznostStats2 .stats")
+//poleznostStatsNode2.innerText = JSON.stringify(poleznostCounters2);
 
 //let container3 = document.querySelector("#elements-container > tbody");
 let selectPoleznost3 = document.querySelector("#selectPoleznost3");
@@ -210,8 +210,8 @@ poleznost3.forEach(item => { // с помощью forEach, обходим эле
 // ну и выводим
 //console.log(poleznostCounters3)
 
-let poleznostStatsNode3 = document.querySelector("#poleznostStats3 .stats")
-poleznostStatsNode3.innerText = JSON.stringify(poleznostCounters3);
+//let poleznostStatsNode3 = document.querySelector("#poleznostStats3 .stats")
+//poleznostStatsNode3.innerText = JSON.stringify(poleznostCounters3);
 
 
 
@@ -368,30 +368,134 @@ async function filterDovonost() {
 
 //кнопка не читает знаечние :(
   
-  let selectElement = document.querySelector(".form-select#selectPoleznost3");
-  selectedValue = selectElement.value;
+let selectElement3 = document.querySelector(".form-select#selectPoleznost3");
+let selectedValue3 = selectElement3.value;
 
- // console.log(selectedValue+'22')
+let selectElement = document.querySelector(".form-select#selectPoleznost");
+let selectedValue = selectElement.value;
 
-  let poleznost4 = data.map(item => item['Отметь, в какой мере ты удовлетворен курсом?']);
-//console.log(poleznost4)
-  //console.log(selectPoleznost4);
-  let poleznostCounters = {};
+let selectElement2 = document.querySelector(".form-select#selectPoleznost2");
+let selectedValue2 = selectElement2.value;
 
-  poleznost4.forEach(item => {
-    if (item === selectedValue) {
-        poleznostCounters[item] = (poleznostCounters[item] || 0) + 1;
-    } 
+let poleznost4 = data.map(item => item['Отметь, в какой мере ты удовлетворен курсом?']);
+let poleznost5 = data.map(item => item['Насколько доволен форматом обучения?']);
+let poleznost6 = data.map(item => item['Насколько курс был полезен?']);
+
+let combinedArray = poleznost4.map((item, index) => [item, poleznost5[index], poleznost6[index]]);
+
+let poleznostCounters = [{}, {}, {}];
+
+combinedArray.forEach(pair => {
+  const item4 = pair[0];
+  const item5 = pair[1];
+  const item6 = pair[2];
+//1
+  if (selectedValue3 === 'не важно' && selectedValue2 === 'не важно' && selectedValue === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+  if (selectedValue3 === 'не важно' && selectedValue2 === 'не важно' &&  selectedValue === item6) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+//1
+  if (selectedValue3 === 'не важно' &&  selectedValue2 === item5 && selectedValue === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+  if (selectedValue3 === 'не важно' &&  selectedValue2 === item5 &&  selectedValue === item6) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+//1
+  if (selectedValue3 === item4 &&  selectedValue2 === 'не важно' && selectedValue === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+  if (selectedValue3 === item4 &&  selectedValue2 === 'не важно' &&  selectedValue === item6) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+//1
+  if (selectedValue3 === item4 &&  selectedValue2 === item5 && selectedValue === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
+  if (selectedValue3 == item4 &&  selectedValue2 == item5 &&  selectedValue == item6) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    poleznostCounters[2][item6] = (poleznostCounters[2][item6] || 0) + 1;
+  }
+
 });
-
-poleznost4.forEach(item => {
-  if (selectedValue == 'не важно') {
-      poleznostCounters[item] = (poleznostCounters[item] || 0) + 1;
-  } 
-});
-
   console.log(poleznostCounters);
+  //console.log(Object.keys(poleznostCounters[0])); // выводит массив ключей объекта с индексом 0
+ console.log(poleznostCounters[0]); // для вывода значения по ключу "ключ"
+ console.log(poleznostCounters[1]); // для вывода значения по ключу "ключ"
+ console.log(poleznostCounters[2]); // для вывода значения по ключу "ключ"
+/* console.log(poleznostCounters[0][item6]);
+  console.log(poleznostCounters[2]); // для вывода значения по ключу "ключ"*/
+  let poleznostStatsNode4 = document.querySelector("#poleznostStats .stats")
+  poleznostStatsNode4.innerText = JSON.stringify(poleznostCounters[0]);
+
+  let poleznostStatsNode5 = document.querySelector("#poleznostStats2 .stats")
+poleznostStatsNode5.innerText = JSON.stringify(poleznostCounters[1]);
+
+let poleznostStatsNode6 = document.querySelector("#poleznostStats3 .stats")
+poleznostStatsNode6.innerText = JSON.stringify(poleznostCounters[2]);
+
+
+
 }
+ /* if (selectedValue3 === 'не важно') {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    if (selectedValue2 === 'не важно') {
+      poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    } 
+    else if (selectedValue2 === item5) {
+      poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    }
+  } 
+  else if (selectedValue3 === item4) {
+    poleznostCounters[0][item4] = (poleznostCounters[0][item4] || 0) + 1;
+    if (selectedValue2 === 'не важно') {
+      poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    } 
+    else if (selectedValue2 === item5) {
+      poleznostCounters[1][item5] = (poleznostCounters[1][item5] || 0) + 1;
+    } 
+  } 
+});*/
+
+
+
+  
+
+
+//   poleznost4.forEach(item => {
+//     poleznost5.forEach(item => {
+//       poleznost6.forEach(item => {
+//     if (item === selectedValue) {
+//         poleznostCounters[item] = (poleznostCounters[item] || 0) + 1;
+//     } 
+// });
+
+// poleznost4.forEach(item => {
+//    if (selectedValue == 'не важно') {
+//        poleznostCounters[item] = (poleznostCounters[item] || 0) + 1;
+//   } 
+//  });
 
 
 function onSelectPoleznostChanged3() {
@@ -403,4 +507,26 @@ function onSelectPoleznostChanged3() {
   fillList();
 }
 
-onSelectPoleznostChanged3()
+onSelectPoleznostChanged2()
+
+function onSelectPoleznostChanged2() {
+  let selectElement = document.querySelector(".form-select#selectPoleznost2");
+  selectedValue2 = selectElement.value;
+
+  console.log("Выбранное значение изменилось на: " + selectedValue2);
+  filterDovonost();
+  fillList();
+}
+
+onSelectPoleznostChanged2()
+
+function onSelectPoleznostChanged() {
+  let selectElement = document.querySelector(".form-select#selectPoleznost");
+  selectedValue3 = selectElement.value;
+
+  console.log("Выбранное значение изменилось на: " + selectedValue3);
+  filterDovonost();
+  fillList();
+}
+
+onSelectPoleznostChanged()
