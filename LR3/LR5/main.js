@@ -1,3 +1,5 @@
+
+
 async function process2() {
   let r = await fetch("data.json");
   let data = await r.json();
@@ -362,6 +364,9 @@ async function filterDovonost(data){
 // }
 
 // ну, не работает, ничего не поделаю...
+let poleznostChart = null;
+let poleznostChart2 = null;
+let poleznostChart3 = null;
 async function filterDovonost() {
   let r = await fetch("data.json");
   let data = await r.json();
@@ -383,7 +388,7 @@ let poleznost6 = data.map(item => item['Насколько курс был по�
 
 let combinedArray = poleznost4.map((item, index) => [item, poleznost5[index], poleznost6[index]]);
 
-let poleznostCounters = [{}, {}, {}];
+var poleznostCounters = [{}, {}, {}];
 
 combinedArray.forEach(pair => {
   const item4 = pair[0];
@@ -456,6 +461,98 @@ let poleznostStatsNode6 = document.querySelector("#poleznostStats3 .stats")
 poleznostStatsNode6.innerText = JSON.stringify(poleznostCounters[2]);
 
 
+//poleznostChart.update() // перерисовали график
+
+
+
+if (poleznostChart instanceof Chart) {
+  poleznostChart.destroy();
+}
+
+console.log(Object.keys(poleznostCounters[0]));//работает, выводит (4) ['В основном', 'Полностью удовлетворен', 'Не удовлетворен', 'Частично']0: "В основном"1: "Полностью удовлетворен"2: "Не удовлетворен"3: "Частично"length: 4[[Prototype]]: Array(0)
+console.log(Object.values(poleznostCounters[0]));//работает, выводит (4) ['В основном', 'Полностью удовлетворен', 'Не удовлетворен', 'Частично']0: "В основном"1: "Полностью удовлетворен"2: "Не удовлетворен"3: "Частично"length: 4[[Prototype]]: Array(0)
+const chartContainer = document.querySelector('#chart');
+
+  let labels1 = Object.keys(poleznostCounters[0]);
+  let values1 = Object.values(poleznostCounters[0]);
+
+  console.log(Object.values("Прочитал функцию графика 2"));
+
+  poleznostChart =  new Chart(chartContainer, {
+  type: 'bar',
+  data: {
+    labels: labels1,
+    datasets: [{
+      label: 'количество голосов',
+      data: values1,
+    }]
+  },
+  options: {
+    maintainAspectRatio: false
+  }
+});
+
+if (poleznostChart2 instanceof Chart) {
+  poleznostChart2.destroy();
+}
+
+console.log(Object.keys(poleznostCounters[1]));//работает, выводит (4) ['В основном', 'Полностью удовлетворен', 'Не удовлетворен', 'Частично']0: "В основном"1: "Полностью удовлетворен"2: "Не удовлетворен"3: "Частично"length: 4[[Prototype]]: Array(0)
+console.log(Object.values(poleznostCounters[1]));//работает, выводит (4) ['В основном', 'Полностью удовлетворен', 'Не удовлетворен', 'Частично']0: "В основном"1: "Полностью удовлетворен"2: "Не удовлетворен"3: "Частично"length: 4[[Prototype]]: Array(0)
+const chartContainer2 = document.querySelector('#chart2');
+
+  let labels2 = Object.keys(poleznostCounters[1]);
+  let values2 = Object.values(poleznostCounters[1]);
+
+  console.log(Object.values("Прочитал функцию графика 2"));
+
+  poleznostChart2 =  new Chart(chartContainer2, {
+  type: 'bar',
+  data: {
+    labels: labels2,
+    datasets: [{
+      label: 'количество голосов',
+      data: values2,
+
+      backgroundColor: 'rgba(255, 99, 132, 0.2)', // Розовый цвет с прозрачностью
+      borderColor: 'rgba(255, 99, 132, 1)', // Граница розового цвета
+      borderWidth: 1
+    }]
+  },
+  options: {
+    maintainAspectRatio: false
+  }
+});
+
+if (poleznostChart3 instanceof Chart) {
+  poleznostChart3.destroy();
+}
+
+console.log(Object.keys(poleznostCounters[2]));//работает, выводит (4) ['В основном', 'Полностью удовлетворен', 'Не удовлетворен', 'Частично']0: "В основном"1: "Полностью удовлетворен"2: "Не удовлетворен"3: "Частично"length: 4[[Prototype]]: Array(0)
+console.log(Object.values(poleznostCounters[2]));//работает, выводит (4) ['В основном', 'Полностью удовлетворен', 'Не удовлетворен', 'Частично']0: "В основном"1: "Полностью удовлетворен"2: "Не удовлетворен"3: "Частично"length: 4[[Prototype]]: Array(0)
+const chartContainer3 = document.querySelector('#chart3');
+
+  let labels3 = Object.keys(poleznostCounters[2]);
+  let values3 = Object.values(poleznostCounters[2]);
+
+  console.log(Object.values("Прочитал функцию графика 2"));
+
+  poleznostChart3 =  new Chart(chartContainer3, {
+  type: 'bar',
+  data: {
+    labels: labels3,
+    datasets: [{
+      label: 'количество голосов',
+      data: values3,
+      
+      backgroundColor: 'rgba(255, 205, 86, 0.2)', // Жёлтый цвет с прозрачностью
+      borderColor: 'rgba(255, 205, 86, 1)', // Граница жёлтого цвета
+      borderWidth: 1
+    }]
+  },
+  options: {
+    maintainAspectRatio: false
+  }
+});
 
 }
  /* if (selectedValue3 === 'не важно') {
@@ -530,3 +627,45 @@ function onSelectPoleznostChanged() {
 }
 
 onSelectPoleznostChanged()
+
+// let poleznostChart = null;
+// let poleznostCounters = [/* ваш набор данных */];
+
+// async function createChart() {
+//     const chartContainer = document.querySelector('#chart');
+
+//     poleznostChart = new Chart(chartContainer, {
+//         type: 'bar',
+//         data: {
+//             labels: ['СреднийЙЙЙ', 'Полезный', 'Очень полезный'],
+//             datasets: [{
+//                 label: 'количество голосов',
+//                 data: [12, 19, 3],
+//             }]
+//         },
+//         options: {
+//             maintainAspectRatio: false
+//         }
+//     });
+
+//     let labels = Object.keys(poleznostCounters[0]);
+//     let values = Object.values(poleznostCounters[0]);
+
+//     poleznostChart.data.labels = labels;
+//     poleznostChart.data.datasets = [{
+//         label: 'количество голосов',
+//         data: values,
+//     }];
+
+//     poleznostChart.update();
+// }
+
+//console.log(Object.keys(poleznostCounters[0]))
+//console.log(Object.values(poleznostCounters[0]))
+
+async function createChart() {
+  //filterDovonost();
+
+}
+
+createChart();
